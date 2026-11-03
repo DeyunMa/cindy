@@ -180,6 +180,9 @@ describe('restored reading position handoff through MessageStream.handleScroll',
       chipJumpInProgressRef: { current: false },
       jumpDownIdleTimerRef: { current: null },
       saveScrollSnapshot: vi.fn(), clearChipJumpSuppression: vi.fn(),
+      // handleScroll delegates button visibility to a separate hook; this fixture
+      // exercises restoration and follow intent, not that hook's visibility timer.
+      updateJumpDown: vi.fn(),
       setIsNearBottom: vi.fn(), setUnreadKeys: vi.fn(), setShowJumpDown: vi.fn(),
       setFirstVisibleItemKey: vi.fn(), setAnchoredForwardItems: vi.fn(),
       unpinAutoFollowForUserUpIntent: vi.fn(), bumpSendFollowCancelGeneration: vi.fn(),
